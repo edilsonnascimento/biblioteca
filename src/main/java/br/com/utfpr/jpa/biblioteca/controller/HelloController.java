@@ -1,4 +1,4 @@
-package br.com.utfpr.jpa.biblioteca;
+package br.com.utfpr.jpa.biblioteca.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
