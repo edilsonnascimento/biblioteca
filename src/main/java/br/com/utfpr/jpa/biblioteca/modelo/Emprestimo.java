@@ -8,6 +8,7 @@ public class Emprestimo {
     private LocalDateTime dataHora;
     private Usuario usuario;
     private LocalDateTime dataHoraDevolucao;
+    private Estado estado;
 
     public Long getCodigo() {
         return codigo;

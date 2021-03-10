@@ -7,6 +7,7 @@ public class Usuario{
     private String email;
     private String endereco;
     private Long telefone;
+    private String senha;
 
     public String getMatricula() {
         return matricula;
@@ -46,5 +47,13 @@ public class Usuario{
 
     public void setTelefone(Long telefone) {
         this.telefone = telefone;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }
