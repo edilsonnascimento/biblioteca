@@ -1,6 +1,11 @@
 package br.com.utfpr.jpa.biblioteca.modelo;
 
-public class Usuario{
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Usuario extends AbstractPersistable<Long> {
 
     private String matricula;
     private String nome;

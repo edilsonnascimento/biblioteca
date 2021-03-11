@@ -1,22 +1,28 @@
 package br.com.utfpr.jpa.biblioteca.controller.dto;
 
+import br.com.utfpr.jpa.biblioteca.modelo.Estado;
+import br.com.utfpr.jpa.biblioteca.modelo.Livro;
 import br.com.utfpr.jpa.biblioteca.modelo.Sessao;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class LivroDto {
 
-    private String codigo;
+
     private String titulo;
     private String autor;
+    private Estado estado;
 
 
-    public LivroDto(String codigo, String titulo, String autor) {
-        this.codigo = codigo;
-        this.titulo = titulo;
-        this.autor = autor;
+    public LivroDto(Livro livro) {
+        this.titulo = livro.getTitulo();
+        this.autor = livro.getAutor();
+        this.estado = livro.getEstado();
     }
 
-    public String getCodigo() {
-        return codigo;
+    public static List<LivroDto> converte(List<Livro> livros) {
+        return livros.parallelStream().map(LivroDto::new).collect(Collectors.toList());
     }
 
     public String getTitulo() {
@@ -27,5 +33,7 @@ public class LivroDto {
         return autor;
     }
 
-
+    public Estado getEstado() {
+        return estado;
+    }
 }

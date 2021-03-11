@@ -1,19 +1,25 @@
 package br.com.utfpr.jpa.biblioteca.modelo;
 
-public class Livro {
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
-    private String codigo;
+import javax.persistence.*;
+
+@Entity
+public class Livro extends AbstractPersistable<Long> {
+
     private String titulo;
+
     private String autor;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Emprestimo emprestimo;
+
+    @ManyToOne
     private Sessao sessao;
 
-    public String getCodigo() {
-        return codigo;
-    }
+    @Enumerated(EnumType.STRING)
+    private Estado estado;
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
 
     public String getTitulo() {
         return titulo;
@@ -37,5 +43,25 @@ public class Livro {
 
     public void setSessao(Sessao sessao) {
         this.sessao = sessao;
+    }
+
+    public Emprestimo getEmprestimo() {
+        return emprestimo;
+    }
+
+    public void setEmprestimos(Emprestimo emprestimo) {
+        this.emprestimo = emprestimo;
+    }
+
+    public void setEmprestimo(Emprestimo emprestimo) {
+        this.emprestimo = emprestimo;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 }

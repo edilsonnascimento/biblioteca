@@ -1,6 +1,11 @@
 package br.com.utfpr.jpa.biblioteca.modelo;
 
-public class Sessao {
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Sessao extends AbstractPersistable<Long> {
 
     private String codigoSesao;
     private String descricao;

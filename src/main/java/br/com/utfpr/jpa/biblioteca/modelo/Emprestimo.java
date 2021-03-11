@@ -1,22 +1,23 @@
 package br.com.utfpr.jpa.biblioteca.modelo;
 
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
-public class Emprestimo {
+@Entity
+public class Emprestimo extends AbstractPersistable<Long> {
 
-    private Long codigo;
     private LocalDateTime dataHora;
+
+    @ManyToOne
     private Usuario usuario;
+
     private LocalDateTime dataHoraDevolucao;
-    private Estado estado;
 
-    public Long getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
-    }
+    @ManyToMany
+    private List<Livro> livros;
 
     public LocalDateTime getDataHora() {
         return dataHora;
@@ -40,5 +41,21 @@ public class Emprestimo {
 
     public void setDataHoraDevolucao(LocalDateTime dataHoraDevolucao) {
         this.dataHoraDevolucao = dataHoraDevolucao;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public List<Livro> getLivros() {
+        return livros;
+    }
+
+    public void setLivros(List<Livro> livros) {
+        this.livros = livros;
     }
 }

@@ -1,6 +1,8 @@
 package br.com.utfpr.jpa.biblioteca.modelo;
 
-public enum Estado {
 
+import javax.persistence.Enumerated;
+
+public enum Estado {
     EMPRESTADO, LIBERADO, DESATIVADO;
 }
